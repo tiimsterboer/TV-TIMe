@@ -50,37 +50,39 @@ class ViewController: UIViewController {
         
         
         
-        let page = 1
-        let webpage = "https://api.tvmaze.com/shows?page=\(page)"
-        let url: NSURL = NSURL(string: webpage)!
-        
-        
-        do {
-            let data: Data = try! Data(contentsOf: url as URL)
-            let jsonArray = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! NSMutableArray
+        for page in 0...139 {
+            let webpage = "https://api.tvmaze.com/shows?page=\(page)"
+            let url: NSURL = NSURL(string: webpage)!
             
-            for jsonObject in jsonArray! {
-                if let show = TVShow(json: (jsonObject as AnyObject) as! [String : Any]) {
-                    tvShows.append(show)
-                    
-                    
-                }
-                if tvShows.count == 0 {
-                    print("no shows parsed")
-                }
+            
+            do {
+                let data: Data = try! Data(contentsOf: url as URL)
+                let jsonArray = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! NSMutableArray
                 
+                for jsonObject in jsonArray! {
+                    if let show = TVShow(json: (jsonObject as AnyObject) as! [String : Any]) {
+                        tvShows.append(show)
+                        
+                        
+                    }
+                    if tvShows.count == 0 {
+                        print("no shows parsed")
+                    }
+                    
+                }
+                print(tvShows.count)
+                //print(tvShows[45].name)
+               //print(tvShows[226].genres)
+                //print(tvShows[137].summary)
             }
-            print(tvShows.count)
-            //print(tvShows[45].name)
-           //print(tvShows[226].genres)
-            //print(tvShows[137].summary)
-        }
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(tvShows, toFile: TVShow.ArchiveURL.path)
         
-        if isSuccessfulSave {
-            os_log("Show saved", log: OSLog.default, type: .debug)
-        } else {
-            os_log("Failed", log: OSLog.default, type: .error)
+            let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(tvShows, toFile: TVShow.ArchiveURL.path)
+            
+            if isSuccessfulSave {
+                os_log("Show saved", log: OSLog.default, type: .debug)
+            } else {
+                os_log("Failed", log: OSLog.default, type: .error)
+            }
         }
     }
     

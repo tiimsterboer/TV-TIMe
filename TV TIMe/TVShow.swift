@@ -50,7 +50,7 @@ class TVShow: NSObject, NSCoding {
     }
     
     //Initialization
-    init?(id: Int32, name: String, type: String, language: String, summary: String, genres: [String]) {
+   init?(id: Int32, name: String, type: String, language: String, summary: String, genres: [String]) {
         self.id = id
         self.name = name
         self.type = type
