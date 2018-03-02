@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uNy-Hw-Chz">
-                                <rect key="frame" x="150" y="134" width="74" height="60"/>
+                                <rect key="frame" x="150" y="134" width="74" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abD-2B-FG8">
@@ -33,8 +33,15 @@
                                         <rect key="frame" x="0.0" y="30" width="74" height="30"/>
                                         <state key="normal" title="Show Data"/>
                                         <connections>
-                                            <action selector="getData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U0b-VB-1vr"/>
                                             <action selector="showData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gLv-AZ-akm"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGT-JR-63N">
+                                        <rect key="frame" x="0.0" y="60" width="74" height="30"/>
+                                        <state key="normal" title="clear"/>
+                                        <connections>
+                                            <action selector="clear:" destination="BYZ-38-t0r" eventType="touchUpInside" id="391-dE-nep"/>
+                                            <action selector="showData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bCQ-AK-dhG"/>
                                         </connections>
                                     </button>
                                 </subviews>

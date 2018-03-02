@@ -13,12 +13,14 @@ import os.log
 
 class ViewController: UIViewController {
     
-    var tvShows = [TVShow]()
+    var tvShows: [TVShow] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        if let savedShows = loadShows(){
+            tvShows += savedShows
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,9 +34,6 @@ class ViewController: UIViewController {
     
     @IBAction func showData(_ sender: Any) {
         
-        if let savedShows = loadShows(){
-            tvShows += savedShows
-        }
         for show in tvShows {
             print (show.name)
             
@@ -42,8 +41,11 @@ class ViewController: UIViewController {
         print(tvShows.count)
     }
     
+    @IBAction func clear(_ sender: Any) {
+        tvShows = []
+    }
     
-    func saveShows() {
+    private func saveShows() {
         print("action works")
         
         
@@ -52,34 +54,7 @@ class ViewController: UIViewController {
         let webpage = "https://api.tvmaze.com/shows?page=\(page)"
         let url: NSURL = NSURL(string: webpage)!
         
-        /*Alamofire.request("https://api.tvmaze.com/shows?page=0").responseJSON { (responseData) -> Void in
-         if((responseData.result.value) != nil) {
-         let swiftyJsonVar = JSON(responseData.result.value!)
-         //print(swiftyJsonVar)
-         for item in swiftyJsonVar.array! {
-         let show = TVShow(*/
         
-        /*print(item["name"].stringValue)
-         print(item["genres"].arrayValue)
-         print(Int32(item["id"].intValue))
-         print(item["type"].stringValue)
-         print(item["language"].stringValue)
-         print(item["summary"].stringValue)*/
-        
-        
-        /*URLSession.shared.dataTask(with: url!) { (data, response, error) in
-         
-         if error != nil {
-         print("There was an issue")
-         print(error)
-         } else {
-         
-         print("got to here")
-         do {
-         print("Json work")
-         
-         self.json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: AnyObject]
-         let myData = self.json["data"]!*/
         do {
             let data: Data = try! Data(contentsOf: url as URL)
             let jsonArray = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! NSMutableArray
@@ -96,9 +71,9 @@ class ViewController: UIViewController {
                 
             }
             print(tvShows.count)
-            print(tvShows[45].name)
-            print(tvShows[226].genres)
-            print(tvShows[137].summary)
+            //print(tvShows[45].name)
+           //print(tvShows[226].genres)
+            //print(tvShows[137].summary)
         }
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(tvShows, toFile: TVShow.ArchiveURL.path)
         
