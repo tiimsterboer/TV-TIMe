@@ -19,31 +19,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uNy-Hw-Chz">
-                                <rect key="frame" x="150" y="134" width="74" height="90"/>
+                                <rect key="frame" x="150" y="134" width="112" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abD-2B-FG8">
-                                        <rect key="frame" x="0.0" y="0.0" width="74" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="112" height="30"/>
                                         <state key="normal" title="Get Data"/>
                                         <connections>
                                             <action selector="getData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="etc-GH-vDh"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ary-sJ-CLs">
-                                        <rect key="frame" x="0.0" y="30" width="74" height="30"/>
+                                        <rect key="frame" x="0.0" y="30" width="112" height="30"/>
                                         <state key="normal" title="Show Data"/>
                                         <connections>
                                             <action selector="showData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gLv-AZ-akm"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FcT-8j-5hQ">
+                                        <rect key="frame" x="0.0" y="60" width="112" height="30"/>
+                                        <state key="normal" title="search"/>
+                                        <connections>
+                                            <action selector="search:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kYg-ue-9wm"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGT-JR-63N">
-                                        <rect key="frame" x="0.0" y="60" width="74" height="30"/>
+                                        <rect key="frame" x="0.0" y="90" width="112" height="30"/>
                                         <state key="normal" title="clear"/>
                                         <connections>
                                             <action selector="clear:" destination="BYZ-38-t0r" eventType="touchUpInside" id="391-dE-nep"/>
                                             <action selector="showData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bCQ-AK-dhG"/>
                                         </connections>
                                     </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Show ID" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dqw-4C-2Eb">
+                                        <rect key="frame" x="0.0" y="120" width="112" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
                                 </subviews>
                             </stackView>
                         </subviews>

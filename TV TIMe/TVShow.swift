@@ -43,10 +43,10 @@ class TVShow: NSObject, NSCoding {
         }
         self.id = id
         self.name = name
-        self.type = (json["type"] as? String)!
-        self.language = (json["language"] as? String)!
-        self.summary = (json["summary"] as? String)!
-        self.genres = (json["genres"] as? [String])!
+        self.type = json["type"] as? String ?? "default type"
+        self.language = json["language"] as? String ?? "default language"
+        self.summary = json["summary"] as? String ?? "default summary"
+        self.genres = json["genres"] as? [String] ?? ["default genre"]
     }
     
     //Initialization

@@ -41,6 +41,18 @@ class ViewController: UIViewController {
         print(tvShows.count)
     }
     
+    @IBAction func search(_ sender: Any) {
+        print("works")
+        var searchText = "Chicago"
+        for show in tvShows {
+            if show.name.contains(searchText) {
+                print(show.name)
+            }
+        }
+        
+        
+        
+    }
     @IBAction func clear(_ sender: Any) {
         tvShows = []
     }
