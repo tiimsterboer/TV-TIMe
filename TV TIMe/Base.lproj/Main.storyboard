@@ -70,6 +70,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="searchButton" destination="FcT-8j-5hQ" id="vEt-1n-Ns8"/>
                         <outlet property="searchField" destination="dqw-4C-2Eb" id="pxZ-BL-U2l"/>
                     </connections>
                 </viewController>

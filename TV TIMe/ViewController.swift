@@ -16,12 +16,16 @@ class ViewController: UIViewController {
     var tvShows: [TVShow] = []
 
     @IBOutlet weak var searchField: UITextField!
+    @IBOutlet weak var searchButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        if let savedShows = loadShows(){
-            tvShows += savedShows
+        DispatchQueue.global(qos:.userInteractive).async {
+            if let savedShows = self.loadShows(){
+                self.tvShows += savedShows
+                print("shows loaded")
+            }
         }
     }
 
@@ -76,8 +80,9 @@ class ViewController: UIViewController {
                 
                 for jsonObject in jsonArray! {
                     if let show = TVShow(json: (jsonObject as AnyObject) as! [String : Any]) {
-                        tvShows.append(show)
-                        
+                        if show.language == "English" {
+                            tvShows.append(show)
+                        }
                         
                     }
                     if tvShows.count == 0 {
