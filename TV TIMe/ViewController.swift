@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     
     var tvShows: [TVShow] = []
 
+    @IBOutlet weak var searchField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -43,9 +45,10 @@ class ViewController: UIViewController {
     
     @IBAction func search(_ sender: Any) {
         print("works")
-        var searchText = "Chicago"
+        print(searchField.text!)
+        //var searchText = "Chicago"
         for show in tvShows {
-            if show.name.contains(searchText) {
+            if show.name.contains(searchField.text!) {
                 print(show.name)
             }
         }
