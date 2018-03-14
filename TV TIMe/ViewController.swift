@@ -14,6 +14,8 @@ import os.log
 class ViewController: UIViewController {
     
     var tvShows: [TVShow] = []
+    var searchShows: [TVShow] = []
+    
 
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
@@ -53,6 +55,7 @@ class ViewController: UIViewController {
         //var searchText = "Chicago"
         for show in tvShows {
             if show.name.contains(searchField.text!) {
+                searchShows.append(show)
                 print(show.name)
             }
         }
@@ -112,6 +115,10 @@ class ViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let SearchResultsVC = segue.destination as? SearchResultsVC else {return}
+        SearchResultsVC.showsList = searchShows
+    }
     }
     
 
