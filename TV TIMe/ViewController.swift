@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     
     var tvShows: [TVShow] = []
     var searchShows: [TVShow] = []
+    var myName = "Tim"
     
 
     @IBOutlet weak var searchField: UITextField!
@@ -50,6 +51,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func search(_ sender: Any) {
+        
+        searchTheShows()
+        
+        
+    }
+    @IBAction func clear(_ sender: Any) {
+        tvShows = []
+    }
+    private func searchTheShows() {
+        
         print("works")
         print(searchField.text!)
         //var searchText = "Chicago"
@@ -58,15 +69,11 @@ class ViewController: UIViewController {
                 searchShows.append(show)
                 print(show.name)
             }
+            
         }
-        
-        
+        print(searchShows.count)
         
     }
-    @IBAction func clear(_ sender: Any) {
-        tvShows = []
-    }
-    
     private func saveShows() {
         print("action works")
         
@@ -116,8 +123,13 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let SearchResultsVC = segue.destination as? SearchResultsVC else {return}
-        SearchResultsVC.showsList = searchShows
+        if segue.identifier == "searchSegue" {
+            guard let SearchResultsVC = segue.destination as? SearchResultsVC else {return}
+            SearchResultsVC.showsList = searchShows
+            SearchResultsVC.name = self.myName
+            print(searchShows.count)
+            print(SearchResultsVC.showsList.count)
+        }
     }
     }
     

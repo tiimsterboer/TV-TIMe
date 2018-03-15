@@ -95,14 +95,24 @@
                                     <outlet property="dataSource" destination="kVi-Np-j4c" id="ovC-aB-wvA"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DwS-Vs-qjT">
+                                <rect key="frame" x="64" y="20" width="247" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="76e-zw-r8l"/>
                     </view>
+                    <connections>
+                        <outlet property="nameLabel" destination="DwS-Vs-qjT" id="l3m-Dc-tmQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2N0-iq-gJ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1454" y="139"/>
+            <point key="canvasLocation" x="1453.5999999999999" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>

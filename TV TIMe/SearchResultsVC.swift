@@ -11,6 +11,9 @@ import UIKit
 class SearchResultsVC: UIViewController, UITableViewDataSource {
     
     var showsList: [TVShow] = []
+    var name = ""
+    
+    @IBOutlet weak var nameLabel: UILabel!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
@@ -29,6 +32,8 @@ class SearchResultsVC: UIViewController, UITableViewDataSource {
             
         }
         print("this is from the 2nd page")
+        print(showsList.count)
+        nameLabel.text = name
     }
     
 }
