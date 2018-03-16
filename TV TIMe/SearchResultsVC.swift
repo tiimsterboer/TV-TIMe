@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchResultsVC: UIViewController, UITableViewDataSource {
+class SearchResultsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var showsList: [TVShow] = []
     var name = ""
@@ -16,13 +16,17 @@ class SearchResultsVC: UIViewController, UITableViewDataSource {
     @IBOutlet weak var nameLabel: UILabel!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return showsList.count
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let myCell = tableView.dequeueReusableCell(withIdentifier: "protoCell", for: indexPath)
         myCell.textLabel?.text = "TVSHOW"
         return myCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("you chose a show")
     }
     
     override func viewDidLoad() {

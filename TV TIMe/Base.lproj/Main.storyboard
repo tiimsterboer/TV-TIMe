@@ -60,10 +60,20 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Database Loading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dp4-EM-TmQ">
+                                <rect key="frame" x="20" y="323" width="335" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dp4-EM-TmQ" secondAttribute="trailing" constant="20" id="BiU-6R-GFs"/>
+                            <constraint firstItem="dp4-EM-TmQ" firstAttribute="top" secondItem="uNy-Hw-Chz" secondAttribute="bottom" constant="39" id="E0d-1V-xf4"/>
+                            <constraint firstItem="dp4-EM-TmQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="T0p-rS-ACU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uNy-Hw-Chz" secondAttribute="trailing" constant="20" id="ZeU-c5-PGN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dp4-EM-TmQ" secondAttribute="bottom" constant="323" id="fIi-Gw-iKK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uNy-Hw-Chz" secondAttribute="bottom" constant="383" id="gmz-y9-GPQ"/>
                             <constraint firstItem="uNy-Hw-Chz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="iVJ-7G-6eH"/>
                             <constraint firstItem="uNy-Hw-Chz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="114" id="yAH-cm-8TS"/>
@@ -71,13 +81,14 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="loadingLbl" destination="dp4-EM-TmQ" id="gDO-x2-txv"/>
                         <outlet property="searchButton" destination="FcT-8j-5hQ" id="vEt-1n-Ns8"/>
                         <outlet property="searchField" destination="dqw-4C-2Eb" id="pxZ-BL-U2l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="530" y="180"/>
+            <point key="canvasLocation" x="528.79999999999995" y="179.46026986506749"/>
         </scene>
         <!--Search ResultsVC-->
         <scene sceneID="5rV-jB-n3V">
@@ -96,7 +107,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b6g-RL-dlG" id="Bk1-GJ-3eX">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>

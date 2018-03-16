@@ -16,20 +16,37 @@ class ViewController: UIViewController {
     var tvShows: [TVShow] = []
     var searchShows: [TVShow] = []
     var myName = "Tim"
+    var activityIndicator = UIActivityIndicatorView()
     
 
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var loadingLbl: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = .gray
+        self.view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
         // Do any additional setup after loading the view, typically from a nib.
         DispatchQueue.global(qos:.userInteractive).async {
             if let savedShows = self.loadShows(){
                 self.tvShows += savedShows
                 print("shows loaded")
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                    self.loadingLbl.isHidden = true
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                }
+                    
             }
         }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -126,7 +143,7 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "searchSegue" {
             guard let SearchResultsVC = segue.destination as? SearchResultsVC else {return}
-            SearchResultsVC.showsList = searchShows
+            SearchResultsVC.showsList = self.searchShows
             SearchResultsVC.name = self.searchField.text!
             print(searchShows.count)
             print(SearchResultsVC.showsList.count)
