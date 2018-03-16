@@ -18,6 +18,7 @@ class TVShow: NSObject, NSCoding {
     var language: String
     var summary: String
     var genres: [String]
+    var imageURL: URL?
     
     //Types
     struct PropertyKey {
@@ -27,6 +28,7 @@ class TVShow: NSObject, NSCoding {
         static let language = "language"
         static let summary = "summary"
         static let genres = "genres"
+        static let imageURL = "imageURL"
     }
     
     //Archiving Paths
@@ -36,6 +38,7 @@ class TVShow: NSObject, NSCoding {
     //initializer
     init?(json: [String: Any]) {
         guard
+            let imageinfo = json["image"] as? [String: Any],
             let id = json["id"] as? Int32,
             let name = json["name"] as? String
             else {
@@ -47,16 +50,23 @@ class TVShow: NSObject, NSCoding {
         self.language = json["language"] as? String ?? "default language"
         self.summary = json["summary"] as? String ?? "default summary"
         self.genres = json["genres"] as? [String] ?? ["default genre"]
+        if let mediumURLString = imageinfo["medium"] as? String {
+            self.imageURL = URL(string:mediumURLString)
+        } else {
+            self.imageURL = nil
+        }
+        
     }
     
     //Initialization
-   init?(id: Int32, name: String, type: String, language: String, summary: String, genres: [String]) {
+    init?(id: Int32, name: String, type: String, language: String, summary: String, genres: [String], imageUrl: URL) {
         self.id = id
         self.name = name
         self.type = type
         self.language = language
         self.summary = summary
         self.genres = genres
+        self.imageURL = imageUrl
         super.init()
         
     }
@@ -68,6 +78,7 @@ class TVShow: NSObject, NSCoding {
         aCoder.encode(language, forKey: PropertyKey.language)
         aCoder.encode(summary, forKey: PropertyKey.summary)
         aCoder.encode(genres, forKey: PropertyKey.genres)
+        aCoder.encode(imageURL, forKey: PropertyKey.imageURL)
     }
     
     required convenience init(coder aDecoder: NSCoder){
@@ -77,8 +88,9 @@ class TVShow: NSObject, NSCoding {
         let language = aDecoder.decodeObject(forKey: PropertyKey.language) as! String
         let summary = aDecoder.decodeObject(forKey: PropertyKey.summary) as! String
         let genres = aDecoder.decodeObject(forKey: PropertyKey.genres) as! Array<String>
+        let imageURL = aDecoder.decodeObject(forKey: PropertyKey.imageURL) as! URL
         
-        self.init(id: id, name: name, type: type, language: language, summary: summary, genres: genres)!
+        self.init(id: id, name: name, type: type, language: language, summary: summary, genres: genres, imageUrl: imageURL)!
         
         
     }

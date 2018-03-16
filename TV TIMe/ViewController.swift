@@ -60,7 +60,7 @@ class ViewController: UIViewController {
         tvShows = []
     }
     private func searchTheShows() {
-        
+        searchShows = []
         print("works")
         print(searchField.text!)
         //var searchText = "Chicago"
@@ -68,6 +68,7 @@ class ViewController: UIViewController {
             if show.name.contains(searchField.text!) {
                 searchShows.append(show)
                 print(show.name)
+                print(show.imageURL ?? "default URL")
             }
             
         }
@@ -126,10 +127,14 @@ class ViewController: UIViewController {
         if segue.identifier == "searchSegue" {
             guard let SearchResultsVC = segue.destination as? SearchResultsVC else {return}
             SearchResultsVC.showsList = searchShows
-            SearchResultsVC.name = self.myName
+            SearchResultsVC.name = self.searchField.text!
             print(searchShows.count)
             print(SearchResultsVC.showsList.count)
         }
+    }
+    @IBAction func didUnwindFromSearchResultsVC(_ sender: UIStoryboardSegue) {
+        guard let SearchResultsVC = sender.source as? SearchResultsVC else { return }
+        
     }
     }
     

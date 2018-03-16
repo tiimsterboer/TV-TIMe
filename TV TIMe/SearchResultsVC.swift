@@ -16,11 +16,11 @@ class SearchResultsVC: UIViewController, UITableViewDataSource {
     @IBOutlet weak var nameLabel: UILabel!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return showsList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let myCell = UITableViewCell()
+        let myCell = tableView.dequeueReusableCell(withIdentifier: "protoCell", for: indexPath)
         myCell.textLabel?.text = "TVSHOW"
         return myCell
     }
@@ -28,12 +28,12 @@ class SearchResultsVC: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super .viewDidLoad()
         for show in showsList {
-            print(show.language)
+            print("\(show.name) \(show.genres)" )
             
         }
         print("this is from the 2nd page")
         print(showsList.count)
-        nameLabel.text = name
+        nameLabel.text = "Shows that match \(name)"
     }
     
 }
