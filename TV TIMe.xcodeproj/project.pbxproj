@@ -16,6 +16,7 @@
 		825194C72044F7C800B818F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 825194C52044F7C800B818F4 /* LaunchScreen.storyboard */; };
 		825194CF2044F7F200B818F4 /* TVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825194CE2044F7F200B818F4 /* TVShow.swift */; };
 		82824BE22059DAA4001330C7 /* SearchResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82824BE12059DAA4001330C7 /* SearchResultsVC.swift */; };
+		82824BE4205C6F36001330C7 /* DetailViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82824BE3205C6F36001330C7 /* DetailViewVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		825194C82044F7C800B818F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		825194CE2044F7F200B818F4 /* TVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShow.swift; sourceTree = "<group>"; };
 		82824BE12059DAA4001330C7 /* SearchResultsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsVC.swift; sourceTree = "<group>"; };
+		82824BE3205C6F36001330C7 /* DetailViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewVC.swift; sourceTree = "<group>"; };
 		DE0FC8AA30620B99A3F0B2D1 /* Pods_TV_TIMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TV_TIMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 				825194B92044F7C800B818F4 /* AppDelegate.swift */,
 				825194BB2044F7C800B818F4 /* ViewController.swift */,
 				82824BE12059DAA4001330C7 /* SearchResultsVC.swift */,
+				82824BE3205C6F36001330C7 /* DetailViewVC.swift */,
 				825194BD2044F7C800B818F4 /* Main.storyboard */,
 				825194C32044F7C800B818F4 /* Assets.xcassets */,
 				825194C52044F7C800B818F4 /* LaunchScreen.storyboard */,
@@ -232,6 +235,7 @@
 				825194BA2044F7C800B818F4 /* AppDelegate.swift in Sources */,
 				82824BE22059DAA4001330C7 /* SearchResultsVC.swift in Sources */,
 				825194CF2044F7F200B818F4 /* TVShow.swift in Sources */,
+				82824BE4205C6F36001330C7 /* DetailViewVC.swift in Sources */,
 				825194C22044F7C800B818F4 /* TV_TIMe.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

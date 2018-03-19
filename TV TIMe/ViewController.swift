@@ -69,7 +69,7 @@ class ViewController: UIViewController {
     
     @IBAction func search(_ sender: Any) {
         
-        searchTheShows()
+        print("search pressed")
         
         
     }
@@ -142,6 +142,7 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "searchSegue" {
+            searchTheShows()
             guard let SearchResultsVC = segue.destination as? SearchResultsVC else {return}
             SearchResultsVC.showsList = self.searchShows
             SearchResultsVC.name = self.searchField.text!
