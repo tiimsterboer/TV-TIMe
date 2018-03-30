@@ -42,11 +42,12 @@ class ViewController: UIViewController {
                     self.activityIndicator.stopAnimating()
                     self.loadingLbl.isHidden = true
                     UIApplication.shared.endIgnoringInteractionEvents()
+                    print(self.tvShows.count)
                 }
                     
             }
         }
-        
+     
     }
 
     override func didReceiveMemoryWarning() {
@@ -84,8 +85,8 @@ class ViewController: UIViewController {
         for show in tvShows {
             if show.name.contains(searchField.text!) {
                 searchShows.append(show)
-                print(show.name)
-                print(show.imageURL ?? "default URL")
+                //print(show.name)
+                //print(show.imageURL ?? "default URL")
             }
             
         }
@@ -146,6 +147,7 @@ class ViewController: UIViewController {
             guard let SearchResultsVC = segue.destination as? SearchResultsVC else {return}
             SearchResultsVC.showsList = self.searchShows
             SearchResultsVC.name = self.searchField.text!
+            SearchResultsVC.tvShows = self.tvShows
             print(searchShows.count)
             print(SearchResultsVC.showsList.count)
         }

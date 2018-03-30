@@ -10,6 +10,7 @@ import UIKit
 
 class SearchResultsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    var tvShows: [TVShow] = []
     var showsList: [TVShow] = []
     var detailList: [TVShow] = []
     var name = ""
@@ -45,6 +46,7 @@ class SearchResultsVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         }
         print("this is from the 2nd page")
         print(showsList.count)
+        print(tvShows.count)
         nameLabel.text = "Shows that match \(name)"
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -52,6 +54,7 @@ class SearchResultsVC: UIViewController, UITableViewDataSource, UITableViewDeleg
            
             guard let DetailViewVC = segue.destination as? DetailViewVC else {return}
             DetailViewVC.showDetail = self.detailList
+            DetailViewVC.tvShows = self.tvShows
         }
     }
     @IBAction func didUnwindFromDetailViewVC (_ sender: UIStoryboardSegue) {

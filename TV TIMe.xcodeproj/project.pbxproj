@@ -89,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				825194CE2044F7F200B818F4 /* TVShow.swift */,
+				82824BE5206D8CC0001330C7 /* cosSim.swift */,
 				825194B92044F7C800B818F4 /* AppDelegate.swift */,
 				825194BB2044F7C800B818F4 /* ViewController.swift */,
 				82824BE12059DAA4001330C7 /* SearchResultsVC.swift */,
@@ -98,7 +99,6 @@
 				825194C52044F7C800B818F4 /* LaunchScreen.storyboard */,
 				825194C82044F7C800B818F4 /* Info.plist */,
 				825194C02044F7C800B818F4 /* TV_TIMe.xcdatamodeld */,
-				82824BE5206D8CC0001330C7 /* cosSim.swift */,
 			);
 			path = "TV TIMe";
 			sourceTree = "<group>";
