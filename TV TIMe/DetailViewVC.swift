@@ -34,13 +34,47 @@ class DetailViewVC: UIViewController {
     }
     
     @IBAction func findSimShows(_ sender: Any) {
-        var topMatches = Dictionary<String, Double>()
-        for x in 0...5 {
+        //var topMatches = Dictionary<String, Double>()
+        var sim = [0.0, 0.0, 0.0]
+        var tS = ["", "", ""]
+        for x in 0...100 {
             let cos = CosSim.cosSim(wordBag: CosSim.wordCount(r: showDetail[0].summary, s: tvShows[x].summary).wordBag, freq1: CosSim.wordCount(r: showDetail[0].summary, s: tvShows[x].summary).freq1, freq2: CosSim.wordCount(r: showDetail[0].summary, s: tvShows[x].summary).freq2)
-            topMatches.updateValue(cos, forKey: tvShows[x].name)
-            
+            if cos > sim[0] {
+                sim[2] = sim[1]
+                tS[2] = tS[1]
+                sim[1] = sim[0]
+                tS[1] = tS[0]
+                sim[0] = cos
+                tS[0] = tvShows[x].name
             }
-        print(topMatches)
+            else if cos > sim[1] {
+                sim[2] = sim[1]
+                tS[2] = tS[1]
+                sim[1] = cos
+                tS[1] = tvShows[x].name
+            }
+            else if cos > sim[2] {
+                sim[2] = cos
+                tS[2] = tvShows[x].name
+            }
+            //topMatches.updateValue(cos, forKey: tvShows[x].name)
+            //similarities.append(cos)
+            print(cos)
+            }
+        print(sim)
+        print(tS)
+        /*var topMatches = ["a":0.0, "b":0.0]
+        
+        for name in topMatches.keys {
+            for x in 0...tvShows.count {
+                let cos = CosSim.cosSim(wordBag: CosSim.wordCount(r: showDetail[0].summary, s: tvShows[x].summary).wordBag, freq1: CosSim.wordCount(r: showDetail[0].summary, s: tvShows[x].summary).freq1, freq2: CosSim.wordCount(r: showDetail[0].summary, s: tvShows[x].summary).freq2)
+                if cos > topMatches[name]! {
+                    topMatches.updateValue(cos, forKey: tvShows[x].name)
+                    break
+                }
+            }
+        }
+        print(topMatches)*/
     }
     
             
