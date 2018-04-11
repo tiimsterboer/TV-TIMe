@@ -22,17 +22,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var n = Int(arc4random_uniform(20367))
     var activityIndicator = UIActivityIndicatorView()
     
+    
+    
 
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var loadingLbl: UILabel!
+    @IBOutlet weak var launchedOrNot: UILabel!
     
     @IBOutlet weak var queueTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        launchedOrNot.text = launch
         queueTableView.delegate = self
         queueTableView.dataSource = self
+        
         
         
         

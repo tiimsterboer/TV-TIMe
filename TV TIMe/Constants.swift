@@ -8,7 +8,7 @@
 
 import Foundation
 
-var userQueue : [TVShow]?
+//var userQueue : [TVShow]?
 
 func saveData( userQueue: [TVShow]) {
     UserDefaults.standard.set(userQueue, forKey: "userQueue")

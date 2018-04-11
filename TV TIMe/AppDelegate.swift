@@ -9,6 +9,11 @@
 import UIKit
 import CoreData
 
+var launch = ""
+var userQueue: [TVShow] = []
+var rand = arc4random_uniform(20000)
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -23,6 +28,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         else {
             userQueue = [TVShow]()
         }
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        
+        if launchedBefore {
+            launch = "has launched before"
+            userQueue = fetchData()!
+        }
+        else {
+            launch = "first time launch"
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            userQueue = []
+        }
         return true
     }
 
@@ -34,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        saveData(userQueue: userQueue!)
+        saveData(userQueue: userQueue)
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -48,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
-        saveData(userQueue: userQueue!)
+        saveData(userQueue: userQueue)
         self.saveContext()
     }
 

@@ -31,6 +31,7 @@ class SearchResultsVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("you chose a show \(indexPath.row)")
         detailList.append(showsList[indexPath.row])
+        userQueue.append(showsList[indexPath.row])
         self.performSegue(withIdentifier: "detailSegue", sender: nil)
     }
     
