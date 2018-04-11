@@ -66,22 +66,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BSb-OZ-npj">
+                                <rect key="frame" x="16" y="369" width="343" height="278"/>
+                                <color key="backgroundColor" red="0.50980392159999999" green="0.50980392159999999" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="BSb-OZ-npj" firstAttribute="top" secondItem="dp4-EM-TmQ" secondAttribute="bottom" constant="25" id="6Pi-Tm-8Le"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dp4-EM-TmQ" secondAttribute="trailing" constant="20" id="BiU-6R-GFs"/>
+                            <constraint firstItem="BSb-OZ-npj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="CbY-O0-fjj"/>
                             <constraint firstItem="dp4-EM-TmQ" firstAttribute="top" secondItem="uNy-Hw-Chz" secondAttribute="bottom" constant="39" id="E0d-1V-xf4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BSb-OZ-npj" secondAttribute="trailing" constant="16" id="Kcb-Og-ass"/>
                             <constraint firstItem="dp4-EM-TmQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="T0p-rS-ACU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uNy-Hw-Chz" secondAttribute="trailing" constant="20" id="ZeU-c5-PGN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dp4-EM-TmQ" secondAttribute="bottom" constant="323" id="fIi-Gw-iKK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uNy-Hw-Chz" secondAttribute="bottom" constant="383" id="gmz-y9-GPQ"/>
                             <constraint firstItem="uNy-Hw-Chz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="iVJ-7G-6eH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BSb-OZ-npj" secondAttribute="bottom" constant="20" id="nut-yc-Xr2"/>
                             <constraint firstItem="uNy-Hw-Chz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="114" id="yAH-cm-8TS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="loadingLbl" destination="dp4-EM-TmQ" id="gDO-x2-txv"/>
+                        <outlet property="queueTableView" destination="BSb-OZ-npj" id="22h-Ud-27M"/>
                         <outlet property="searchButton" destination="FcT-8j-5hQ" id="vEt-1n-Ns8"/>
                         <outlet property="searchField" destination="dqw-4C-2Eb" id="pxZ-BL-U2l"/>
                     </connections>
@@ -225,16 +234,25 @@
                                     <action selector="findSimShows:" destination="Kud-g9-Jgm" eventType="touchUpInside" id="Mjc-uC-0l7"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRM-uL-HL4">
+                                <rect key="frame" x="257" y="80" width="98" height="302"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ceb-2l-hbt" firstAttribute="leading" secondItem="IQR-K6-Qdu" secondAttribute="leading" constant="20" id="1FN-Qm-I8B"/>
                             <constraint firstItem="pxt-WO-6fP" firstAttribute="leading" secondItem="IQR-K6-Qdu" secondAttribute="leading" constant="15" id="1ha-Uk-Q1F"/>
                             <constraint firstItem="IQR-K6-Qdu" firstAttribute="bottom" secondItem="CQA-BJ-7jH" secondAttribute="bottom" constant="20" id="2al-BF-C7a"/>
+                            <constraint firstItem="ZRM-uL-HL4" firstAttribute="top" secondItem="ceb-2l-hbt" secondAttribute="bottom" constant="20" id="3Ac-tM-eTa"/>
                             <constraint firstItem="CQA-BJ-7jH" firstAttribute="leading" secondItem="IQR-K6-Qdu" secondAttribute="leading" constant="16" id="5nw-cZ-7Bg"/>
                             <constraint firstItem="IQR-K6-Qdu" firstAttribute="trailing" secondItem="0ds-tr-xVG" secondAttribute="trailing" constant="20" id="8a5-PA-kac"/>
                             <constraint firstItem="O6O-96-tHY" firstAttribute="leading" secondItem="IQR-K6-Qdu" secondAttribute="leading" constant="20" id="J1i-wY-M2o"/>
                             <constraint firstItem="IQR-K6-Qdu" firstAttribute="trailing" secondItem="pxt-WO-6fP" secondAttribute="trailing" constant="15" id="PjX-5M-aNq"/>
+                            <constraint firstItem="pxt-WO-6fP" firstAttribute="top" secondItem="ZRM-uL-HL4" secondAttribute="bottom" constant="8" id="V96-IH-Z2k"/>
+                            <constraint firstItem="ZRM-uL-HL4" firstAttribute="leading" secondItem="O6O-96-tHY" secondAttribute="trailing" constant="27" id="elr-ZR-7pO"/>
                             <constraint firstItem="O6O-96-tHY" firstAttribute="top" secondItem="ceb-2l-hbt" secondAttribute="bottom" constant="20" id="hw8-LJ-qkR"/>
                             <constraint firstItem="IQR-K6-Qdu" firstAttribute="trailing" secondItem="ceb-2l-hbt" secondAttribute="trailing" constant="20" id="mlK-At-VDc"/>
                             <constraint firstItem="IQR-K6-Qdu" firstAttribute="bottom" secondItem="0ds-tr-xVG" secondAttribute="bottom" constant="17" id="pMV-Wo-FOL"/>
@@ -242,12 +260,14 @@
                             <constraint firstItem="CQA-BJ-7jH" firstAttribute="top" secondItem="pxt-WO-6fP" secondAttribute="bottom" constant="5" id="sNV-zo-3D8"/>
                             <constraint firstItem="pxt-WO-6fP" firstAttribute="top" secondItem="O6O-96-tHY" secondAttribute="bottom" constant="15" id="vX2-BH-kdX"/>
                             <constraint firstItem="ceb-2l-hbt" firstAttribute="top" secondItem="IQR-K6-Qdu" secondAttribute="top" constant="10" id="xON-rr-Qsk"/>
+                            <constraint firstItem="IQR-K6-Qdu" firstAttribute="trailing" secondItem="ZRM-uL-HL4" secondAttribute="trailing" constant="20" id="zc2-Kn-Clo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IQR-K6-Qdu"/>
                     </view>
                     <connections>
                         <outlet property="detailLabel" destination="pxt-WO-6fP" id="eOo-ac-Qch"/>
                         <outlet property="nameLbl" destination="ceb-2l-hbt" id="pPR-QJ-Q7d"/>
+                        <outlet property="resultsLbl" destination="ZRM-uL-HL4" id="zmW-rv-cPb"/>
                         <outlet property="showImg" destination="O6O-96-tHY" id="ao0-Dq-sTr"/>
                     </connections>
                 </viewController>

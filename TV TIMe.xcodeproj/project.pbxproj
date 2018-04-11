@@ -18,6 +18,8 @@
 		82824BE22059DAA4001330C7 /* SearchResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82824BE12059DAA4001330C7 /* SearchResultsVC.swift */; };
 		82824BE4205C6F36001330C7 /* DetailViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82824BE3205C6F36001330C7 /* DetailViewVC.swift */; };
 		82824BE6206D8CC0001330C7 /* cosSim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82824BE5206D8CC0001330C7 /* cosSim.swift */; };
+		82BFBE17207C35D600CEE443 /* String+Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BFBE16207C35D600CEE443 /* String+Regex.swift */; };
+		82BFBE19207C50B500CEE443 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BFBE18207C50B500CEE443 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		82824BE12059DAA4001330C7 /* SearchResultsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsVC.swift; sourceTree = "<group>"; };
 		82824BE3205C6F36001330C7 /* DetailViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewVC.swift; sourceTree = "<group>"; };
 		82824BE5206D8CC0001330C7 /* cosSim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cosSim.swift; sourceTree = "<group>"; };
+		82BFBE16207C35D600CEE443 /* String+Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Regex.swift"; sourceTree = "<group>"; };
+		82BFBE18207C50B500CEE443 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DE0FC8AA30620B99A3F0B2D1 /* Pods_TV_TIMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TV_TIMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -90,6 +94,7 @@
 			children = (
 				825194CE2044F7F200B818F4 /* TVShow.swift */,
 				82824BE5206D8CC0001330C7 /* cosSim.swift */,
+				82BFBE16207C35D600CEE443 /* String+Regex.swift */,
 				825194B92044F7C800B818F4 /* AppDelegate.swift */,
 				825194BB2044F7C800B818F4 /* ViewController.swift */,
 				82824BE12059DAA4001330C7 /* SearchResultsVC.swift */,
@@ -99,6 +104,7 @@
 				825194C52044F7C800B818F4 /* LaunchScreen.storyboard */,
 				825194C82044F7C800B818F4 /* Info.plist */,
 				825194C02044F7C800B818F4 /* TV_TIMe.xcdatamodeld */,
+				82BFBE18207C50B500CEE443 /* Constants.swift */,
 			);
 			path = "TV TIMe";
 			sourceTree = "<group>";
@@ -236,11 +242,13 @@
 			files = (
 				825194BC2044F7C800B818F4 /* ViewController.swift in Sources */,
 				825194BA2044F7C800B818F4 /* AppDelegate.swift in Sources */,
+				82BFBE17207C35D600CEE443 /* String+Regex.swift in Sources */,
 				82824BE22059DAA4001330C7 /* SearchResultsVC.swift in Sources */,
 				82824BE6206D8CC0001330C7 /* cosSim.swift in Sources */,
 				825194CF2044F7F200B818F4 /* TVShow.swift in Sources */,
 				82824BE4205C6F36001330C7 /* DetailViewVC.swift in Sources */,
 				825194C22044F7C800B818F4 /* TV_TIMe.xcdatamodeld in Sources */,
+				82BFBE19207C50B500CEE443 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

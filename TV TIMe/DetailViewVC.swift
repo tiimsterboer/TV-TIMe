@@ -14,13 +14,15 @@ class DetailViewVC: UIViewController {
     var showDetail : [TVShow] = []
     var tvShows : [TVShow] = []
     
+    @IBOutlet weak var resultsLbl: UILabel!
     @IBOutlet weak var nameLbl: UILabel!
     
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var showImg: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        detailLabel.text = showDetail[0].summary
+        let showSumm = showDetail[0].summary.removeTags(txt: showDetail[0].summary)
+        detailLabel.text = showSumm
         nameLbl.text = showDetail[0].name
         //genresLbl.text = showDetail[0].genres
         do {
@@ -59,10 +61,16 @@ class DetailViewVC: UIViewController {
             }
             //topMatches.updateValue(cos, forKey: tvShows[x].name)
             //similarities.append(cos)
-            print(cos)
+            //print(cos)
             }
         print(sim)
         print(tS)
+        
+        resultsLbl.isHidden = false
+        for show in tS {
+            resultsLbl.text = show
+        }
+        
         /*var topMatches = ["a":0.0, "b":0.0]
         
         for name in topMatches.keys {

@@ -11,11 +11,15 @@ import Alamofire
 import SwiftyJSON
 import os.log
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    
     
     var tvShows: [TVShow] = []
     var searchShows: [TVShow] = []
+    var userQueue: [TVShow] = []
     var myName = "Tim"
+    var n = Int(arc4random_uniform(20367))
     var activityIndicator = UIActivityIndicatorView()
     
 
@@ -23,8 +27,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var loadingLbl: UILabel!
     
+    @IBOutlet weak var queueTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        queueTableView.delegate = self
+        queueTableView.dataSource = self
+        
+        
         
         activityIndicator.center = self.view.center
         activityIndicator.hidesWhenStopped = true
@@ -43,11 +53,29 @@ class ViewController: UIViewController {
                     self.loadingLbl.isHidden = true
                     UIApplication.shared.endIgnoringInteractionEvents()
                     print(self.tvShows.count)
+                    self.searchField.becomeFirstResponder()
+                    self.userQueue.append(self.tvShows[self.n])
+                    print(self.userQueue[0].name)
                 }
                     
             }
         }
      
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return userQueue.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        cell.textLabel?.text = userQueue[indexPath.row].name
+        
+        return cell
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        queueTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -141,6 +169,7 @@ class ViewController: UIViewController {
         
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "searchSegue" {
             searchTheShows()
@@ -155,7 +184,8 @@ class ViewController: UIViewController {
     @IBAction func didUnwindFromSearchResultsVC(_ sender: UIStoryboardSegue) {
         guard let SearchResultsVC = sender.source as? SearchResultsVC else { return }
         
-    }
+        }
+    
     }
     
 
